@@ -1,0 +1,18 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlserver"
+  url      = "sqlserver://.;database=EnsolversDB2;user=Sa;password=Sa123456;trustServerCertificate=true;" //"sqlserver://Sa:Sa123456@localhost:1433/EnsolversDB"
+}
+
+model Note {
+  id String @id @default(uuid()) @map("_id")
+  noteName String
+  noteDescription String
+  isArchived Boolean
+}
